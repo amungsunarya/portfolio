@@ -1,12 +1,19 @@
 import { motion } from "framer-motion";
+
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center py-20 px-4">
+    <section
+      className="relative min-h-screen flex flex-col justify-center items-center text-center py-20 px-4 bg-cover bg-center"
+      style={{ backgroundImage: "url('/image/logo.png')" }}
+    >
+      {/* Overlay biar teks kebaca */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto"
+        className="relative max-w-4xl mx-auto"
       >
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
@@ -16,7 +23,8 @@ export default function Hero() {
         >
           Amung Sunarya
         </motion.h1>
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -24,7 +32,8 @@ export default function Hero() {
         >
           IT Support Engineer
         </motion.p>
-        <motion.p 
+
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
