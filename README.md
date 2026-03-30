@@ -47,5 +47,3 @@ Projects data saved in `./data/portfolio.db`
 - Sample project data seeder
 - API validation (Pydantic), health endpoint
 - Docker persistence (`./data`), healthchecks, restarts
-
-Built with BLACKBOXAI review.
