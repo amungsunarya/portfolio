@@ -6,7 +6,6 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 🔥 NEW: modal state
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
@@ -90,9 +89,13 @@ export default function Projects() {
               >
                 {/* IMAGE */}
                 <img
-                  src={p.image || "/images/projects/default.png"}
+                  src={
+                    p.images && p.images.length > 0
+                      ? p.images[0]
+                      : "/images/projects/default.png"
+                  }
                   alt={p.name}
-                  className="w-full h-36 object-cover rounded-xl mb-4 group-hover:scale-105 transition duration-500"
+                  className="w-full h-36 object-cover rounded-xl mb-4 group-hover:scale-110 transition duration-500"
                 />
 
                 {/* CONTENT */}
@@ -123,12 +126,21 @@ export default function Projects() {
   );
 }
 
+// ================= MODAL COMPONENT =================
+import { useEffect } from "react";
+
 function Modal({ selected, onClose }) {
   const [index, setIndex] = useState(0);
 
-  const images = selected.images?.length
-    ? selected.images
-    : [selected.image || "/images/projects/default.png"];
+  // RESET INDEX SAAT GANTI PROJECT
+  useEffect(() => {
+    setIndex(0);
+  }, [selected]);
+
+  const images =
+    selected.images && selected.images.length > 0
+      ? selected.images
+      : ["/images/projects/default.png"];
 
   const next = () => setIndex((prev) => (prev + 1) % images.length);
   const prev = () => setIndex((prev) => (prev - 1 + images.length) % images.length);

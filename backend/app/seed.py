@@ -16,13 +16,13 @@ def seed_projects(db: Session):
         {
             "name": "VPN Infrastructure (OpenVPN)",
             "description": "Secure remote access for internal systems.",
-            "detail": "Configured and maintained OpenVPN server for secure remote access, enabling safe connectivity for remote operations.",
+            "detail": "Configured and maintained OpenVPN server for secure remote access.",
             "images": ["/images/projects/ovpn.png"]
         },
         {
             "name": "LAN/WAN/WLAN Infrastructure Maintenance",
             "description": "Troubleshooting and network optimization.",
-            "detail": "Handled network issues, VLAN configuration, switch troubleshooting, and ensured high availability of LAN/WAN infrastructure.",
+            "detail": "Handled VLAN configuration, switch troubleshooting, and ensured high availability.",
             "images": [
                 "/images/projects/topology.png",
                 "/images/projects/wlan.png"
@@ -30,9 +30,9 @@ def seed_projects(db: Session):
         },
         {
             "name": "Server Administration (Linux & Windows)",
-            "description": "System management and performance optimization.",
-            "detail": "Managed user access, performed system updates, backups, and optimized server performance for stability and reliability.",
-            "image": ["/images/projects/server.png"]
+            "description": "System management and optimization.",
+            "detail": "Managed user access, updates, backups, and server performance.",
+            "images": ["/images/projects/server.png"]  # ✅ FIX
         }
     ]
 
@@ -43,8 +43,7 @@ def seed_projects(db: Session):
                 name=proj_data["name"],
                 description=proj_data["description"],
                 detail=proj_data["detail"],
-                image=proj_data.get("image") or proj_data.get("images", [""])[0] if proj_data.get("images") else "",
-                images=proj_data.get("images")
+                images=proj_data["images"]
             )
             db.add(project)
             db.commit()

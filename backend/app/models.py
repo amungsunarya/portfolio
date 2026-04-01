@@ -8,5 +8,4 @@ class Project(Base):
     name = Column(String)
     description = Column(String)
     detail = Column(String)
-    image = Column(String) 
     images = Column(JSON)
