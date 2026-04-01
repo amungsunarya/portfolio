@@ -43,7 +43,8 @@ def seed_projects(db: Session):
                 name=proj_data["name"],
                 description=proj_data["description"],
                 detail=proj_data["detail"],
-                image=proj_data["image"]
+                image=proj_data.get("image") or proj_data.get("images", [""])[0] if proj_data.get("images") else "",
+                images=proj_data.get("images")
             )
             db.add(project)
             db.commit()
