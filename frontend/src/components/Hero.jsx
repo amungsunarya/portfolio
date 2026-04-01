@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="text-xl md:text-2xl lg:text-3xl text-gray-200 mb-8 md:mb-12 font-medium"
         >
-          IT Support Engineer
+          IT Support Engineer | Network Engineer | Sys Admin | IT Infra
         </motion.p>
 
         <motion.p
