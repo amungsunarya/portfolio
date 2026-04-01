@@ -1,5 +1,6 @@
 @echo off
 cd /d d:\Project\portfolio\backend
-call pip install -r requirements.txt
+pip install -r requirements.txt
+python app/run_seed.py
 uvicorn app.main:app --reload --host 0.0.0.0 --port 5201
 pause

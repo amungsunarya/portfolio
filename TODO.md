@@ -1,20 +1,10 @@
-# Fix Projects Loading Issue - Approved Plan Breakdown
+# Portfolio Projects Fix - TODO
 
-## Progress
-- [x] Analyzed codebase (Projects.jsx, backend routes/models/DB)
-- [x] Confirmed root cause: Backend not running + possible DB empty + seed bugs
-- [ ] Step 1: Fix seed.py bugs
+## Plan Steps (Docker Mode):
+- [ ] Step 1: Run seed data (`python backend/app/run_seed.py`)
+- [ ] Step 2: Verify nginx/default.conf proxy
+- [ ] Step 3: docker-compose up --build -d
+- [ ] Step 4: Test http://localhost:5200/#projects
+- [ ] Step 5: Verify curl http://localhost:5201/api/projects
 
-## Steps
-1. [x] **Fix seed.py**: KeyError image/images handled
-2. **Seed DB**: cd backend && python app/seed.py  
-3. **Start backend**: cd backend && pip install -r requirements.txt && uvicorn app.main:app --reload --host 0.0.0.0 --port 5201  
-   (Note: docker-compose uses port 5201)
-4. **Serve frontend**: Use nginx build or cd frontend && npm run dev (vite defaults ~5173)
-5. **Test**: curl http://localhost:5201/api/projects  
-   Browser devtools network tab for /api/projects
-6. **Verify**: Projects load without error.
-
-**Browser error confirms server responds (500 ISE)** - likely DB query fail (empty table/missing cols from bad seed).
-
-Run step-by-step or `docker-compose up --build` for full stack.
+Current progress: Step 1 complete (data seeded). Step 2: Start Docker.
