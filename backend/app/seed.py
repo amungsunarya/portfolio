@@ -17,14 +17,14 @@ def seed_projects(db: Session):
             "name": "VPN Infrastructure (OpenVPN)",
             "description": "Secure remote access for internal systems.",
             "detail": "Configured and maintained OpenVPN server for secure remote access, enabling safe connectivity for remote operations.",
-            "image": "/images/projects/vpn.png"
+            "images": ["/images/projects/ovpn.png"]
         },
         {
             "name": "LAN/WAN/WLAN Infrastructure Maintenance",
             "description": "Troubleshooting and network optimization.",
             "detail": "Handled network issues, VLAN configuration, switch troubleshooting, and ensured high availability of LAN/WAN infrastructure.",
-            "image": [
-                "/images/projects/topology.png"
+            "images": [
+                "/images/projects/topology.png",
                 "/images/projects/wlan.png"
             ]
         },
