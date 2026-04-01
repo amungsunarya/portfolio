@@ -127,8 +127,6 @@ export default function Projects() {
 }
 
 // ================= MODAL COMPONENT =================
-import { useEffect } from "react";
-
 function Modal({ selected, onClose }) {
   const [index, setIndex] = useState(0);
 
