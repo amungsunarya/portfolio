@@ -32,7 +32,7 @@ def seed_projects(db: Session):
             "name": "Server Administration (Linux & Windows)",
             "description": "System management and performance optimization.",
             "detail": "Managed user access, performed system updates, backups, and optimized server performance for stability and reliability.",
-            "image": "/images/projects/server.png"
+            "image": ["/images/projects/server.png"]
         }
     ]
 
