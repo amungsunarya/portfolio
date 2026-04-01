@@ -6,7 +6,7 @@
 - [ ] Step 1: Fix seed.py bugs
 
 ## Steps
-1. **Fix seed.py**: Add missing comma, make image consistent list/str
+1. [x] **Fix seed.py**: KeyError image/images handled
 2. **Seed DB**: cd backend && python app/seed.py  
 3. **Start backend**: cd backend && pip install -r requirements.txt && uvicorn app.main:app --reload --host 0.0.0.0 --port 5201  
    (Note: docker-compose uses port 5201)
