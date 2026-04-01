@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       className="relative min-h-screen flex flex-col justify-center items-center text-center py-20 px-4 bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/logoas.png')" }}
+      style={{ backgroundImage: "url('/images/logo.png')" }}
     >
       {/* Overlay biar teks kebaca */}
       <div className="absolute inset-0 bg-black/60"></div>
