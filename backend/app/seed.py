@@ -4,20 +4,53 @@ from app.models import Project
 
 def seed_projects(db: Session):
     projects = [
-        {"name": "Infrastructure Monitoring System", "description": "Real-time monitoring dashboard using Prometheus + Grafana for enterprise IT infra."},
-        {"name": "Network Automation Tool", "description": "Ansible-based automation for network device configuration and compliance checks."},
-        {"name": "Cloud Migration Pipeline", "description": "CI/CD pipeline for migrating on-prem workloads to AWS with Terraform."},
-        {"name": "Security Incident Response Platform", "description": "SIEM integration with automated alerting and SOAR workflows."},
+        {
+            "name": "Network Monitoring System (Zabbix & LibreNMS)",
+            "description": "Monitoring 50+ network devices with real-time alerting.",
+            "detail": "Implemented centralized monitoring using Zabbix and LibreNMS, improving visibility and reducing downtime across enterprise infrastructure.",
+            "images": [
+                "/images/projects/monitoring.png",
+                "/images/projects/monitoring1.png"
+            ]
+        },
+        {
+            "name": "VPN Infrastructure (OpenVPN)",
+            "description": "Secure remote access for internal systems.",
+            "detail": "Configured and maintained OpenVPN server for secure remote access, enabling safe connectivity for remote operations.",
+            "image": "/images/projects/vpn.png"
+        },
+        {
+            "name": "LAN/WAN/WLAN Infrastructure Maintenance",
+            "description": "Troubleshooting and network optimization.",
+            "detail": "Handled network issues, VLAN configuration, switch troubleshooting, and ensured high availability of LAN/WAN infrastructure.",
+            "image": [
+                "/images/projects/topology.png"
+                "/images/projects/wlan.png"
+            ]
+        },
+        {
+            "name": "Server Administration (Linux & Windows)",
+            "description": "System management and performance optimization.",
+            "detail": "Managed user access, performed system updates, backups, and optimized server performance for stability and reliability.",
+            "image": "/images/projects/server.png"
+        }
     ]
-    
+
     for proj_data in projects:
-        if not db.query(Project).filter(Project.name == proj_data["name"]).first():
-            project = Project(name=proj_data["name"], description=proj_data["description"])
+        existing = db.query(Project).filter(Project.name == proj_data["name"]).first()
+        if not existing:
+            project = Project(
+                name=proj_data["name"],
+                description=proj_data["description"],
+                detail=proj_data["detail"],
+                image=proj_data["image"]
+            )
             db.add(project)
             db.commit()
             print(f"Seeded: {proj_data['name']}")
-    
+
     print("Seeding complete.")
+
 
 if __name__ == "__main__":
     db = SessionLocal()
@@ -25,4 +58,3 @@ if __name__ == "__main__":
         seed_projects(db)
     finally:
         db.close()
-
